@@ -1,0 +1,88 @@
+{
+  "purpose": "Unmodified upstream corresponding source and build provenance for bundled runtimes.",
+  "neo4j": {
+    "version": "5.26.12",
+    "commit": "55eee0f5edf92943846be309673b7d06d2922ca8"
+  },
+  "temurin": {
+    "version": "21.0.6+7",
+    "upstream_checksum_verified": true
+  },
+  "files": [
+    {
+      "file": "OpenJDK21U-jdk-sources_21.0.6_7.tar.gz",
+      "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.6%2B7/OpenJDK21U-jdk-sources_21.0.6_7.tar.gz",
+      "bytes": 114041430,
+      "sha256": "47fe4e81dfa1732aaf97044d92dd5d8a222589e62044895d60700c367418608c",
+      "distribution_url": "https://github.com/fyzfyh/inoproshop-CGC-mcp/releases/download/v2026.10.20.2/OpenJDK21U-jdk-sources_21.0.6_7.tar.gz"
+    },
+    {
+      "file": "OpenJDK21U-jdk-sources_21.0.6_7.tar.gz.json",
+      "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.6%2B7/OpenJDK21U-jdk-sources_21.0.6_7.tar.gz.json",
+      "bytes": 31779,
+      "sha256": "3af4a84c00d61e49d77054735a07c79d561e559077b3db580ff4257e640c5116",
+      "distribution_url": "https://github.com/fyzfyh/inoproshop-CGC-mcp/releases/download/v2026.10.20.2/OpenJDK21U-jdk-sources_21.0.6_7.tar.gz.json"
+    },
+    {
+      "file": "OpenJDK21U-jdk-sources_21.0.6_7.tar.gz.sha256.txt",
+      "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.6%2B7/OpenJDK21U-jdk-sources_21.0.6_7.tar.gz.sha256.txt",
+      "bytes": 105,
+      "sha256": "66e90a9ca99c337300d8fe129b92b29c8396e2fa42ad049f87e805108b69495e",
+      "distribution_url": "https://github.com/fyzfyh/inoproshop-CGC-mcp/releases/download/v2026.10.20.2/OpenJDK21U-jdk-sources_21.0.6_7.tar.gz.sha256.txt"
+    },
+    {
+      "file": "OpenJDK21U-jre_x64_windows_hotspot_21.0.6_7.zip.json",
+      "url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.6%2B7/OpenJDK21U-jre_x64_windows_hotspot_21.0.6_7.zip.json",
+      "bytes": 32164,
+      "sha256": "6442ba16543e746541f866396dc97f3131a1fee753ef3d208c7dff6d312af3b8",
+      "distribution_url": "https://github.com/fyzfyh/inoproshop-CGC-mcp/releases/download/v2026.10.20.2/OpenJDK21U-jre_x64_windows_hotspot_21.0.6_7.zip.json"
+    },
+    {
+      "file": "neo4j-5.26.12-source.zip",
+      "url": "https://codeload.github.com/neo4j/neo4j/zip/55eee0f5edf92943846be309673b7d06d2922ca8",
+      "bytes": 33749553,
+      "sha256": "914394948f2957770aa6664a9901d93aa2fb20bb30ec850372fa113ec5ede2ae",
+      "distribution_url": "https://github.com/fyzfyh/inoproshop-CGC-mcp/releases/download/v2026.10.20.2/neo4j-5.26.12-source.zip"
+    },
+    {
+      "file": "certifi-2026.7.22.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/a3/c2/24167ea9858356b47a87a50d39908bfdb72ceeefe0041586e704e5376b3a/certifi-2026.7.22.tar.gz",
+      "bytes": 138112,
+      "sha256": "741e2c3b351ddf169a738da9f2c048608ff7f2c5cc02f1ebc6b118bb090d5d55",
+      "component": "certifi",
+      "version": "2026.7.22",
+      "lock_hash_verified": true,
+      "distribution_url": "https://github.com/fyzfyh/inoproshop-CGC-mcp/releases/download/v2026.10.20.2/certifi-2026.7.22.tar.gz"
+    },
+    {
+      "file": "pathspec-1.1.1.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/5a/82/42f767fc1c1143d6fd36efb827202a2d997a375e160a71eb2888a925aac1/pathspec-1.1.1.tar.gz",
+      "bytes": 135180,
+      "sha256": "17db5ecd524104a120e173814c90367a96a98d07c45b2e10c2f3919fff91bf5a",
+      "component": "pathspec",
+      "version": "1.1.1",
+      "lock_hash_verified": true,
+      "distribution_url": "https://github.com/fyzfyh/inoproshop-CGC-mcp/releases/download/v2026.10.20.2/pathspec-1.1.1.tar.gz"
+    },
+    {
+      "file": "pyzmq-27.2.0.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/e7/8d/5b3d5631c2f4b4b8862f64cd0c9eb777b5710eeb5125b4be8dd0a200a4c0/pyzmq-27.2.0.tar.gz",
+      "bytes": 292316,
+      "sha256": "54d4259d1bfae24ecdb5ca79f7acc2eac6c286a02d6a0ae617797cb45f0726d3",
+      "component": "pyzmq",
+      "version": "27.2.0",
+      "lock_hash_verified": true,
+      "distribution_url": "https://github.com/fyzfyh/inoproshop-CGC-mcp/releases/download/v2026.10.20.2/pyzmq-27.2.0.tar.gz"
+    },
+    {
+      "file": "libzmq-4.3.5-source.tar.gz",
+      "url": "https://codeload.github.com/zeromq/libzmq/tar.gz/refs/tags/v4.3.5",
+      "bytes": 875547,
+      "sha256": "6c972d1e6a91a0ecd79c3236f04cf0126f2f4dfbbad407d72b4606a7ba93f9c6",
+      "component": "libzmq bundled in pyzmq",
+      "version": "4.3.5",
+      "distribution_url": "https://github.com/fyzfyh/inoproshop-CGC-mcp/releases/download/v2026.10.20.2/libzmq-4.3.5-source.tar.gz"
+    }
+  ],
+  "distribution_release": "https://github.com/fyzfyh/inoproshop-CGC-mcp/releases/tag/v2026.10.20.2"
+}

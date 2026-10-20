@@ -3,6 +3,9 @@ import hashlib
 import importlib.util
 import json
 from pathlib import Path
+import subprocess
+import sys
+import zipfile
 
 import pytest
 
@@ -78,3 +81,47 @@ def test_offline_manifest_rejects_parent_paths(tmp_path):
         "../outside": {"sha256": hashlib.sha256(b"private").hexdigest(), "bytes": 7}}}))
     with pytest.raises(ValueError, match="invalid file"):
         module.verify(root)
+
+
+def test_offline_builder_keeps_input_archives_and_dotted_destination(tmp_path, monkeypatch):
+    root = Path(__file__).resolve().parents[3]
+    script = root / "services/inoproshop-mcp/scripts/build-offline-release.py"
+    spec = importlib.util.spec_from_file_location("offline_builder_destination", script)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    lock = json.loads((root / "services/inoproshop-mcp/launcher-runtime-lock.json").read_text())
+    archives = {}
+    for name in ("java", "neo4j"):
+        path = tmp_path / (name + ".zip")
+        with zipfile.ZipFile(path, "w") as package:
+            package.writestr("LICENSE", "unmodified input " + name)
+        archives[name] = path
+    originals = {path: path.read_bytes() for path in archives.values()}
+    digest = module.digest
+    monkeypatch.setattr(module, "digest", lambda path: lock[next(name for name, value in archives.items() if value == Path(path))]["archive_sha256"]
+                        if Path(path) in originals else digest(path))
+    python_home = tmp_path / "clean-python"
+    python_home.mkdir()
+    (python_home / "python.exe").write_bytes(b"test interpreter placeholder")
+    destination = tmp_path / "Product-20261020.2"
+
+    def fake_process(argv, **kwargs):
+        args = list(map(str, argv))
+        if "export" in args:
+            Path(args[args.index("--output-file") + 1]).write_text("# test lock\n")
+        if "sync" in args:
+            (Path(kwargs["env"]["UV_PROJECT_ENVIRONMENT"]) / "Lib/site-packages").mkdir(parents=True)
+        output = "3.12.7\n" if "sys.version_info" in args[-1] else "[]\n"
+        return subprocess.CompletedProcess(args, 0, stdout=output, stderr="")
+
+    monkeypatch.setattr(module.subprocess, "run", fake_process)
+    monkeypatch.setattr(sys, "argv", [str(script), "--root", str(root), "--destination", str(destination),
+                        "--python-home", str(python_home), "--uv", "unused-uv", "--uv-cache", str(tmp_path / "cache"),
+                        "--java-archive", str(archives["java"]), "--neo4j-archive", str(archives["neo4j"])])
+    module.main()
+    result = tmp_path / (destination.name + ".zip")
+    assert result.is_file()
+    assert not destination.with_suffix(".zip").exists()
+    assert all(path.read_bytes() == data for path, data in originals.items())
+    with zipfile.ZipFile(result) as package:
+        assert destination.name + "/LICENSE" in package.namelist()

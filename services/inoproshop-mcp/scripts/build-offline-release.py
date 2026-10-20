@@ -41,10 +41,10 @@ def main():
     if destination.exists() or archive.exists():
         parser.error("Choose a new destination; existing deliverables are never overwritten.")
     lock = json.loads((root / "services/inoproshop-mcp/launcher-runtime-lock.json").read_text())
-    for name, archive in (("java", args.java_archive), ("neo4j", args.neo4j_archive)):
-        if digest(archive) != lock[name]["archive_sha256"]:
+    for name, runtime_archive in (("java", args.java_archive), ("neo4j", args.neo4j_archive)):
+        if digest(runtime_archive) != lock[name]["archive_sha256"]:
             parser.error(name + " archive does not match the release lock")
-        with zipfile.ZipFile(archive) as package:
+        with zipfile.ZipFile(runtime_archive) as package:
             if package.testzip():
                 parser.error(name + " archive is corrupt")
     env = os.environ.copy()

@@ -25,3 +25,38 @@ The source distribution contains the MCP service, bridge and launcher source.
 No installed third-party runtime or database is copied from a developer's
 live database directory. The builder creates a clean independent Python and
 installs exact locked dependencies using local cached artifacts.
+
+## Project license and corresponding source
+
+The project's original code and documentation are licensed under MIT,
+Copyright (c) 2026 fyzfyh. This grant does not replace the independent licenses,
+copyrights or notices of bundled third-party components. See the root LICENSE.
+
+The unmodified Neo4j Community and Temurin runtime corresponding sources are
+available alongside the binary package on the public v2026.10.20.2 release,
+at no additional charge and without a GitHub login:
+
+- `neo4j-5.26.12-source.zip`: complete upstream tagged source, including the
+  Maven build definitions and original licenses.
+- `OpenJDK21U-jdk-sources_21.0.6_7.tar.gz`: the official Eclipse Temurin source
+  release, including OpenJDK source and build configuration.
+- The official Temurin source SHA-256 and source/runtime build metadata JSON
+  files, and `THIRD-PARTY-SOURCES.json`, record the exact upstream artifacts,
+  source revision, build provenance and checksums. The source tarball is
+  verified against its official upstream SHA-256.
+- `certifi-2026.7.22.tar.gz`, `pathspec-1.1.1.tar.gz`, `pyzmq-27.2.0.tar.gz`
+  and `libzmq-4.3.5-source.tar.gz` provide the corresponding MPL component
+  sources and pyzmq's bundled libzmq build definitions. Python source archives
+  are verified against the unchanged project dependency lock.
+
+Public release: https://github.com/fyzfyh/inoproshop-CGC-mcp/releases/tag/v2026.10.20.2
+
+The maintained provenance inventory is `docs/maintenance/THIRD_PARTY_SOURCES.json`
+relative to the package root. Python package source modules and supplied
+license files remain in the portable runtime; each component retains its own
+terms. OpenJDK's GPL with Classpath exception and Neo4j Community's GPL are
+not relicensed as MIT. No bundled upstream binary is modified by this release.
+
+The same source materials apply to the identical runtime binaries in the
+2026-10-20 and v2026.10.20.1 packages. Their original archives, licenses and
+checksums are preserved.

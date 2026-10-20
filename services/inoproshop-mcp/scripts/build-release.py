@@ -24,7 +24,7 @@ def release_files(root: Path):
             for path in directory.rglob("*"):
                 if path.is_file() and path.suffix.lower() in allowed_suffixes and "__pycache__" not in path.parts and not any(part.startswith(".venv") for part in path.parts):
                     selected.add(path)
-    for name in ("pyproject.toml", "uv.lock", "README.md", "CONTRACT.md", "cgc-runtime-lock.json", "launcher-runtime-lock.json", "requirements-cgc-adapter.lock"):
+    for name in ("pyproject.toml", "uv.lock", "README.md", "LICENSE", "CONTRACT.md", "cgc-runtime-lock.json", "launcher-runtime-lock.json", "requirements-cgc-adapter.lock"):
         path = service / name
         if path.exists():
             selected.add(path)
@@ -38,7 +38,7 @@ def release_files(root: Path):
     if not prd.exists():
         raise RuntimeError("The release must include the current MCP requirements baseline")
     selected.add(prd)
-    for name in ("README.md", "Connect-Ino.cmd", "CONNECT-INOPROSHOP.md"):
+    for name in ("README.md", "LICENSE", "THIRD-PARTY-NOTICES.md", "Connect-Ino.cmd", "CONNECT-INOPROSHOP.md"):
         path = root / name
         if not path.is_file():
             raise RuntimeError("Missing one-click entry or user guide: " + name)
@@ -46,7 +46,8 @@ def release_files(root: Path):
     # Product documentation is explicitly selected; never copy an arbitrary
     # docs tree that may contain private engineering or generated reports.
     for name in ("docs/PRODUCT_OVERVIEW.md", "docs/PRIVACY.md", "docs/RELEASE_NOTES.md",
-                 "docs/maintenance/README.md", "docs/maintenance/CLAIMS_AND_REVIEW.md"):
+                 "docs/maintenance/README.md", "docs/maintenance/CLAIMS_AND_REVIEW.md",
+                 "docs/maintenance/THIRD_PARTY_SOURCES.json"):
         path = root / name
         if not path.is_file():
             raise RuntimeError("Missing customer or maintenance documentation: " + name)

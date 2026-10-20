@@ -6,6 +6,7 @@ build-backend = "hatchling.build"
 name = "inoproshop-mcp"
 version = "0.1.0"
 description = "Local InoProShop MCP service with explicit project and snapshot contracts"
+license = {file = "LICENSE"}
 requires-python = ">=3.11,<3.14"
 dependencies = [
   "mcp==1.30.0",
