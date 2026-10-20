@@ -38,11 +38,24 @@ def release_files(root: Path):
     if not prd.exists():
         raise RuntimeError("The release must include the current MCP requirements baseline")
     selected.add(prd)
-    for name in ("Connect-Ino.cmd", "CONNECT-INOPROSHOP.md"):
+    for name in ("README.md", "Connect-Ino.cmd", "CONNECT-INOPROSHOP.md"):
         path = root / name
         if not path.is_file():
             raise RuntimeError("Missing one-click entry or user guide: " + name)
         selected.add(path)
+    # Product documentation is explicitly selected; never copy an arbitrary
+    # docs tree that may contain private engineering or generated reports.
+    for name in ("docs/PRODUCT_OVERVIEW.md", "docs/PRIVACY.md", "docs/RELEASE_NOTES.md",
+                 "docs/maintenance/README.md", "docs/maintenance/CLAIMS_AND_REVIEW.md"):
+        path = root / name
+        if not path.is_file():
+            raise RuntimeError("Missing customer or maintenance documentation: " + name)
+        selected.add(path)
+    history = root / "docs/releases/20261020"
+    for name in ("ACCEPTANCE.md", "acceptance.json", "InoProShop-MCP-Offline-Windows-x64-20261020.sha256"):
+        path = history / name
+        if path.is_file():
+            selected.add(path)
     # ai_package and diagnostics import legacy core. Native acceptance imports
     # host and the ST diagnostic fixture driver; include only known source.
     for name in ("ai_package.py", "diagnostics.py", "core.py", "host.py", "verify_diagnostics.py", "boolean_ld.py"):

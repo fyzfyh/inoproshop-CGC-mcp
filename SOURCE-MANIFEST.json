@@ -1,14 +1,19 @@
 {
-  "archive": "InoProShop-MCP-Offline-Windows-x64-20261020.zip",
-  "archive_sha256": "dcec329a5850d207b534fdd6762790ab88b7f358a9cfb379374b22f4a5d495c3",
+  "archive": "PLC-Engineering-Assistant-Offline-Windows-x64-20261020.1.zip",
+  "archive_sha256": "a2b057da27bc6d7327241dc9e367c57850a8f2871cf612ef8ac575d543bb107d",
+  "revision": "v2026.10.20.1",
   "source_files": {
     "CONNECT-INOPROSHOP.md": {
-      "sha256": "ff8af31426d83f43bc478f25e139f37b2c8c9caa8bc4a866a329934fb0855a87",
-      "bytes": 5374
+      "sha256": "873f6a8bccf68f1fcb264f055d0bddefb7068ded6aa4ba7d18cc5b3ef318d874",
+      "bytes": 1871
     },
     "Connect-Ino.cmd": {
       "sha256": "98385ba3b159a5e03ea0d6ee367fc7d925fb0284e70516ed1df93d8ff6b73ea4",
       "bytes": 162
+    },
+    "README.md": {
+      "sha256": "7a08aea7dc67a1db0ee16f458aec24fbf9d2577821e1662d27a56796c5ec35f6",
+      "bytes": 3998
     },
     "adapters/inoproshop/bridge/README.md": {
       "sha256": "122b0aded96c99c5a4b0efbf2bbeae514ccdb8a8f928b2d1b24f47f92becb6d7",
@@ -45,6 +50,38 @@
     "demo/v2/verify_diagnostics.py": {
       "sha256": "cfbf6eeefca8e740c9518bca15c6fd9ba7b9480d90ef393fe530fc4274e98fe4",
       "bytes": 8212
+    },
+    "docs/PRIVACY.md": {
+      "sha256": "1b74347be71cc132d6bfa791066d2c48fe5c5e1b66a5439e72798f60a50cc938",
+      "bytes": 2128
+    },
+    "docs/PRODUCT_OVERVIEW.md": {
+      "sha256": "c858f052e8fb7aea6bfec2782672ce9cca4ec5767ae95e75bd9dfbe3124dbcdd",
+      "bytes": 3381
+    },
+    "docs/RELEASE_NOTES.md": {
+      "sha256": "2738e3f5e87394c85409630ea84f98d7fbb23aa639bd04141721b42d4fcec515",
+      "bytes": 2048
+    },
+    "docs/maintenance/CLAIMS_AND_REVIEW.md": {
+      "sha256": "2e1e37f4b3f3881ee5e205411b30f2d98f3c7c94736a9f365680dff43d155056",
+      "bytes": 5173
+    },
+    "docs/maintenance/README.md": {
+      "sha256": "312ba7080d5c257c1125a418f0883fdd9d18a4ef1eea29507c18e9034b0b9286",
+      "bytes": 952
+    },
+    "docs/releases/20261020/ACCEPTANCE.md": {
+      "sha256": "2c8247308fcfc23ca2f1694dd0681fd0827fa485a2f2fc08268858f96a37180b",
+      "bytes": 3677
+    },
+    "docs/releases/20261020/InoProShop-MCP-Offline-Windows-x64-20261020.sha256": {
+      "sha256": "6c5a9979507d100d81765c5f1bd1d9a0f527b1de0f3d8ca24b8e05efde5c0f3a",
+      "bytes": 115
+    },
+    "docs/releases/20261020/acceptance.json": {
+      "sha256": "3c9692e11becfaa6768be955a79605fb519170ae8ca3e34f82594143964989e8",
+      "bytes": 2017
     },
     "docs/requirements/PRD-InoProShop-MCP.md": {
       "sha256": "2d137d94c0564970d0132ef8a14b7b2fc1273dbbb6ec529de88e3b0515fe4df8",
@@ -119,8 +156,8 @@
       "bytes": 4087
     },
     "services/inoproshop-mcp/README.md": {
-      "sha256": "55795f772557af2b0f573a099ef696f149bb3d30bf9ffe209f14ca8fc8e2ac88",
-      "bytes": 13589
+      "sha256": "9f58e8c483c3ce6c9fd62e24fcc599b1904aea1e02061cab840fcac1746e9956",
+      "bytes": 14011
     },
     "services/inoproshop-mcp/cgc-runtime-lock.json": {
       "sha256": "588ef463e000887b6ff22f479c01f1af8f4ebbf01b50110dcd8ca8382e56f8ee",
@@ -151,8 +188,12 @@
       "bytes": 7680
     },
     "services/inoproshop-mcp/docs/OFFLINE_README.md": {
-      "sha256": "f4dda68d461b5f5fa56f49127c6fe97feefad98ca23c6b04cc28810d5331d2e0",
-      "bytes": 12604
+      "sha256": "bbe77f142a3411aef5b55ed5fe3428b8f6043d659b1a04509b0685455cc25db8",
+      "bytes": 9616
+    },
+    "services/inoproshop-mcp/docs/PUBLICATION_MAINTENANCE.md": {
+      "sha256": "be1e1cc01bef199973f906ec069bcb13579c22591bf183d64e6d668c2187e683",
+      "bytes": 1276
     },
     "services/inoproshop-mcp/docs/RECOVERY.md": {
       "sha256": "fd407cf422b3094acfc759d7329881ef8186c05f9b7885f297e4387d4a2a0cbd",
@@ -161,6 +202,10 @@
     "services/inoproshop-mcp/docs/RELEASE_REPORT.md": {
       "sha256": "9f98b9b7e2567677ec097dba1dbf97547d59e08b475ff24351bf80d13705b830",
       "bytes": 12100
+    },
+    "services/inoproshop-mcp/docs/TEMPLATE_MAINTENANCE.md": {
+      "sha256": "0c54714b2f19e380b5612502ba58e15122163b56489db2fcca787667a4746af9",
+      "bytes": 2435
     },
     "services/inoproshop-mcp/docs/THIRD_PARTY_OFFLINE.md": {
       "sha256": "92683cdef4aecd33b53d51ca7c52d989e3eee43b20bbc84699b77a61ad418956",
@@ -219,12 +264,12 @@
       "bytes": 2104
     },
     "services/inoproshop-mcp/scripts/build-offline-release.py": {
-      "sha256": "3f614923bd81eaff689408f241046a843092f9fc4da6642ba254a2260ae9026f",
-      "bytes": 8818
+      "sha256": "f2c1d334cd3f7b5237e7b17d2dc1c6265b76f9b7b42c8231adbb88b1c83febc0",
+      "bytes": 8774
     },
     "services/inoproshop-mcp/scripts/build-release.py": {
-      "sha256": "5d9d13f6745975f4be3db0b948db99c55a098ea8a60ccdf83d0bb66b15156cd9",
-      "bytes": 5743
+      "sha256": "6e754014056f97575fe4b4e32b9f9fe9dd0a224546019ffc4432c9e6e993bc3a",
+      "bytes": 6501
     },
     "services/inoproshop-mcp/scripts/evaluate.py": {
       "sha256": "f098c6cba9653c92eda4bf1ec8ce1f286f32c7963d689e06659c25fbeff8888e",
@@ -379,8 +424,8 @@
       "bytes": 5040
     },
     "services/inoproshop-mcp/tests/test_launcher_release.py": {
-      "sha256": "5378efd83c96890b3eb1ad2ee88ae1990891891a3ccd58f776e45ab9afb93f68",
-      "bytes": 1629
+      "sha256": "192e11adc11e6ae5221ea30969b1b3cdee4b7105584784cb064f800745851cb8",
+      "bytes": 1801
     },
     "services/inoproshop-mcp/tests/test_offline_release.py": {
       "sha256": "9605ce3934350cc5a172a88347cabcc6d8bf6a7890d5b08fdee0216ced776146",
@@ -415,13 +460,13 @@
       "bytes": 241862
     },
     "templates/README.md": {
-      "sha256": "ca8a966c42210328914b414a8f030c20f09783a53a66efbe4e29bf7a10285dea",
-      "bytes": 2324
+      "sha256": "b16779d01e52563309ca1d9e2e3fca6ccdf249b2a84907ceb0950629f0642d35",
+      "bytes": 1616
     },
     "templates/catalog.json": {
       "sha256": "b367badcc932a48e04762848f2ba8f830e8a6f388dc5abec59af746616a94dc2",
       "bytes": 472
     }
   },
-  "note": "Only reviewed product source and docs extracted from the exact offline ZIP; repository overview and publication docs added separately."
+  "note": "Documentation revision; product logic, bridge and dependencies match v2026.10.20. Source and docs match the final offline ZIP."
 }

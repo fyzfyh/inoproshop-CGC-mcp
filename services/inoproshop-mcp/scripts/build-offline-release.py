@@ -37,7 +37,8 @@ def main():
     parser.add_argument("--neo4j-archive", type=Path, required=True)
     args = parser.parse_args()
     root, destination = args.root.resolve(), args.destination.resolve()
-    if destination.exists() or destination.with_suffix(".zip").exists():
+    archive = destination.parent / (destination.name + ".zip")
+    if destination.exists() or archive.exists():
         parser.error("Choose a new destination; existing deliverables are never overwritten.")
     lock = json.loads((root / "services/inoproshop-mcp/launcher-runtime-lock.json").read_text())
     for name, archive in (("java", args.java_archive), ("neo4j", args.neo4j_archive)):
@@ -66,7 +67,7 @@ def main():
         path = destination / name
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(data)
-    readme = root / "services/inoproshop-mcp/docs/OFFLINE_README.md"
+    readme = root / "README.md"
     shutil.copyfile(readme, destination / "README.md")
     python_home = destination / "runtime/python"
     shutil.copytree(args.python_home, python_home,
@@ -118,7 +119,6 @@ def main():
     (destination / "offline/manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     run([python_home / "python.exe", "-I", "-B", destination / "services/inoproshop-mcp/scripts/verify-offline.py",
          "--root", destination], env)
-    archive = destination.with_suffix(".zip")
     print("Compressing the complete offline folder...", flush=True)
     with zipfile.ZipFile(archive, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=6, allowZip64=True) as package:
         for path in sorted(destination.rglob("*")):

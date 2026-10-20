@@ -1,0 +1,50 @@
+{
+  "status": "passed_with_documented_baseline_initialization_boundary",
+  "release": "v2026.10.20.1",
+  "revision_type": "documentation_and_delivery_guidance_only",
+  "archive": "PLC-Engineering-Assistant-Offline-Windows-x64-20261020.1.zip",
+  "zip_bytes": 232755828,
+  "sha256": "a2b057da27bc6d7327241dc9e367c57850a8f2871cf612ef8ac575d543bb107d",
+  "payload_files_verified": 7811,
+  "customer_documents": 7,
+  "documentation_links_checked": 33,
+  "packaged_delivery_tests": {
+    "passed": 6,
+    "failed": 0,
+    "skipped": 0
+  },
+  "business_logic_bridge_dependencies_and_runtime_unchanged": true,
+  "source_files_matched": 116,
+  "independent_offline_smoke": {
+    "fresh_unicode_spaces_directory": true,
+    "system_python_java_uv_on_PATH": false,
+    "first_start_seconds": 48.015,
+    "repeat_start_seconds": 7.782,
+    "authenticated_database_restart_persistence": true,
+    "read_only_diagnostic": true,
+    "tool_count": 26,
+    "native_read_graph_and_omp_checks": 15,
+    "model_invoked": false,
+    "native_compile_invoked": false,
+    "external_python_network_attempts": 0,
+    "owned_test_processes_cleaned": true
+  },
+  "baseline_feature_tests": {
+    "source_release": "v2026.10.20",
+    "passed_unique": 273,
+    "skipped": 1,
+    "rerun_in_this_revision": false
+  },
+  "baseline_initialization_boundary": {
+    "first_attempt_failed": true,
+    "failure_record_retained": true,
+    "cause": "The temporary test password began with a dash and was parsed as an option by the third-party initialization tool.",
+    "retry": "A fresh isolated test directory used an alphanumeric-prefixed password and passed.",
+    "existing_product_initialization_logic_modified": false,
+    "follow_up": "Retain as a baseline compatibility issue for separate maintenance; this release does not claim that boundary is fixed."
+  },
+  "reader_review": "Internal product/engineering role self-review by one implementation agent; no independent or real-customer test claimed.",
+  "default_service_state_and_original_project_files_unchanged": true,
+  "old_release_archive_preserved": true,
+  "clean_vm_or_second_computer_tested": false
+}

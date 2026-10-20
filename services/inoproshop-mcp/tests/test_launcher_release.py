@@ -10,7 +10,9 @@ def test_release_includes_complete_launcher_without_runtime_or_credentials():
     spec.loader.exec_module(module)
     files = dict(module.release_files(root))
     required = {
-        "Connect-Ino.cmd", "CONNECT-INOPROSHOP.md",
+        "README.md", "Connect-Ino.cmd", "CONNECT-INOPROSHOP.md",
+        "docs/PRODUCT_OVERVIEW.md", "docs/PRIVACY.md", "docs/RELEASE_NOTES.md",
+        "docs/maintenance/README.md", "docs/maintenance/CLAIMS_AND_REVIEW.md",
         "services/inoproshop-mcp/scripts/Connect-Ino.ps1",
         "services/inoproshop-mcp/scripts/Start-OMP.ps1",
         "services/inoproshop-mcp/launcher-runtime-lock.json",
