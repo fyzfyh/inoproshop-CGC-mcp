@@ -1,0 +1,22 @@
+{
+  "project_id": "golden-project",
+  "snapshot_id": "golden-snapshot",
+  "hash": "golden-fixture-v1",
+  "nodes": [
+    {"id":"app","name":"Application","kind":"application"},
+    {"id":"task","name":"MainTask","kind":"task","application_id":"app"},
+    {"id":"globals","name":"GVL","application_id":"app","declaration":"VAR_GLOBAL\n value : BOOL;\n result : BOOL;\n ib_启动 AT%IX0.7 :BOOL;\nEND_VAR","implementation":null},
+    {"id":"motor","name":"Motor","application_id":"app","declaration":"FUNCTION_BLOCK Motor\nVAR_INPUT\n enable : BOOL;\nEND_VAR\nVAR_OUTPUT\n active : BOOL;\nEND_VAR","implementation":"active := enable;"},
+    {"id":"main","name":"Main","application_id":"app","declaration":"PROGRAM Main\nVAR\n value : BOOL;\n a, b : Motor;\nEND_VAR","implementation":"// result and missing are comment text, not references\nvalue := TRUE;\nGVL.value := value;\na(enable := value, active => result);\nb(enable := GVL.value);\nresult := a.active OR b.active;\nIF ib_启动 THEN\n value := FALSE;\nEND_IF"},
+    {"id":"app2","name":"Application2","kind":"application"},
+    {"id":"other-globals","name":"GVL","application_id":"app2","declaration":"VAR_GLOBAL\n value : BOOL;\nEND_VAR","implementation":null},
+    {"id":"other-main","name":"Main","application_id":"app2","declaration":"PROGRAM Main\nVAR\n value : BOOL;\nEND_VAR","implementation":"value := FALSE;"}
+  ],
+  "relations":[{"kind":"task_calls","from_id":"task","to_id":"main","resolution":"unique_program_in_application","evidence":"task_api.pous"}],
+  "expected": {
+    "reachable_objects":["main","motor"],
+    "main_reads":["value","GVL.value","ib_启动","a.active","b.active"],
+    "main_calls":["a","b"],
+    "unresolved_count":0
+  }
+}

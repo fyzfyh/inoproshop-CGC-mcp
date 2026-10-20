@@ -1,0 +1,427 @@
+{
+  "archive": "InoProShop-MCP-Offline-Windows-x64-20261020.zip",
+  "archive_sha256": "dcec329a5850d207b534fdd6762790ab88b7f358a9cfb379374b22f4a5d495c3",
+  "source_files": {
+    "CONNECT-INOPROSHOP.md": {
+      "sha256": "ff8af31426d83f43bc478f25e139f37b2c8c9caa8bc4a866a329934fb0855a87",
+      "bytes": 5374
+    },
+    "Connect-Ino.cmd": {
+      "sha256": "98385ba3b159a5e03ea0d6ee367fc7d925fb0284e70516ed1df93d8ff6b73ea4",
+      "bytes": 162
+    },
+    "adapters/inoproshop/bridge/README.md": {
+      "sha256": "122b0aded96c99c5a4b0efbf2bbeae514ccdb8a8f928b2d1b24f47f92becb6d7",
+      "bytes": 6909
+    },
+    "adapters/inoproshop/bridge/adapter.py": {
+      "sha256": "bfc5fa319f1d5db319f8b7168ffd3fb6aba90943690372ca9c3d99a274805e9d",
+      "bytes": 19453
+    },
+    "adapters/inoproshop/bridge/entry.py": {
+      "sha256": "34f35cb4013effd1f5dae488f664ebfb06ee337b6250ab6fd53ef661108ce1c0",
+      "bytes": 15145
+    },
+    "demo/v2/ai_package.py": {
+      "sha256": "c5468c36aa6024cf96c1a37d6da59b7a2c4433e42826e0ada69e908c5e55b5fb",
+      "bytes": 23604
+    },
+    "demo/v2/boolean_ld.py": {
+      "sha256": "d0be6cbaec43ed34b8ef4998c866f76457675d5479f93ff6ccdff9090d693dd4",
+      "bytes": 14461
+    },
+    "demo/v2/core.py": {
+      "sha256": "749fbc3acbd1d47b6dddb8cc359ae0fc615a468f17bc6dd69783a76032be1f51",
+      "bytes": 11582
+    },
+    "demo/v2/diagnostics.py": {
+      "sha256": "89c09cb2dbda22c9f52c20d5ab2cdd6d730c01da2a2c8d46e9297cc5414fc4d7",
+      "bytes": 4943
+    },
+    "demo/v2/host.py": {
+      "sha256": "66b772391d3e66a4dc983a8b1cb94775653d54e30bcde19587db9d2439065a6a",
+      "bytes": 13141
+    },
+    "demo/v2/verify_diagnostics.py": {
+      "sha256": "cfbf6eeefca8e740c9518bca15c6fd9ba7b9480d90ef393fe530fc4274e98fe4",
+      "bytes": 8212
+    },
+    "docs/requirements/PRD-InoProShop-MCP.md": {
+      "sha256": "2d137d94c0564970d0132ef8a14b7b2fc1273dbbb6ec529de88e3b0515fe4df8",
+      "bytes": 62047
+    },
+    "scripts/launcher-database-smoke.py": {
+      "sha256": "010ee71f3f108848893c40a4be8e306b61f5f5f8294d093fc4fbaff2210f642d",
+      "bytes": 9796
+    },
+    "scripts/native_am402_stage.py": {
+      "sha256": "6662f82eb5b4c9bbcb06c6e12414780b29e72eb0c60c61b3874f1f639eb1ad5c",
+      "bytes": 9653
+    },
+    "scripts/native_core_verify.py": {
+      "sha256": "838bbcc1cac0e87ff9c3dcc6c6ee0b58dd2aeace88736f133b35bab5061778be",
+      "bytes": 23214
+    },
+    "scripts/native_coverage_stage.py": {
+      "sha256": "c80b655627a7efcbb5621a4acd0156a8e683b11b818ae750f8e0af1799fcb328",
+      "bytes": 6940
+    },
+    "scripts/native_dialogs.py": {
+      "sha256": "c39e7656cb8da8e1c17e2a79d58a7946bc57d68aa6b061a7966ebbdce140a354",
+      "bytes": 2994
+    },
+    "scripts/native_engineering_extensions.py": {
+      "sha256": "dcc58a8409a555abf0d14e28a545beefcc5d8d97e8e11cdac0d9b75d9537d853",
+      "bytes": 22928
+    },
+    "scripts/native_fixture_seed.py": {
+      "sha256": "f237eeab2875ea1e606204125317a83a7e051422e11b1687b6d74de0cfb37629",
+      "bytes": 9220
+    },
+    "scripts/native_live_omp_stage.py": {
+      "sha256": "00adc6d305cbf1ac709e92df09e202a2c69234f9c490ec70a5232ab03e58c26e",
+      "bytes": 4529
+    },
+    "scripts/native_modal_fixture.py": {
+      "sha256": "7f721893259232918ab4499d7db657ba68d49e6c011321ad7ebf55608ce6046d",
+      "bytes": 2118
+    },
+    "scripts/native_modal_stage.py": {
+      "sha256": "fdab00ed326d297939930dad1778d4db28d9cc8a4fcd993d58e82a668ba98e25",
+      "bytes": 1736
+    },
+    "scripts/native_model_stage.py": {
+      "sha256": "66f7836d8f9138a7184553f3db09e0a7e94841fe1e4d33647054ba5f5a919a1c",
+      "bytes": 23368
+    },
+    "scripts/native_monitor_stage.py": {
+      "sha256": "a94a2bf8c6f753a834bfe7a1d70661ed2a3d3ce3d1c1128f64bc657b7e2db2c7",
+      "bytes": 5004
+    },
+    "scripts/native_protocol_tests.py": {
+      "sha256": "0004fa5cdd971218a22390f77e0b5a0c418e1c9def135edc62061d9c170a68bb",
+      "bytes": 5175
+    },
+    "scripts/native_read_stage.py": {
+      "sha256": "21728af14194c860e53c9c080e3afafe213ae7ebb0d558ec714cdbc6a7798a7c",
+      "bytes": 2479
+    },
+    "scripts/native_verify.ps1": {
+      "sha256": "98ceea72da7d06f4a6679a6f9f15ba587180c2ec84841948f5e90359b8baba92",
+      "bytes": 210
+    },
+    "scripts/native_verify.py": {
+      "sha256": "dfbe944c1df232eadf4b35cba447195d15668e74b282b119cc1c8600be1d620f",
+      "bytes": 15745
+    },
+    "services/inoproshop-mcp/CONTRACT.md": {
+      "sha256": "f14cba9fdb31b4081bb5a368b62d4f179bfabcef0ffa58ab45c560d46786f0be",
+      "bytes": 4087
+    },
+    "services/inoproshop-mcp/README.md": {
+      "sha256": "55795f772557af2b0f573a099ef696f149bb3d30bf9ffe209f14ca8fc8e2ac88",
+      "bytes": 13589
+    },
+    "services/inoproshop-mcp/cgc-runtime-lock.json": {
+      "sha256": "588ef463e000887b6ff22f479c01f1af8f4ebbf01b50110dcd8ca8382e56f8ee",
+      "bytes": 1355
+    },
+    "services/inoproshop-mcp/config/omp.mcp.example.json": {
+      "sha256": "fbbf9970aa866fc6e50123b6face51905b7f660b61b72f539fbd28c42e2d1617",
+      "bytes": 220
+    },
+    "services/inoproshop-mcp/config/tools.schema.json": {
+      "sha256": "413a6fb0a511e0a556e97e3041b81f49ee7d712aeaa4b7639e521540044d75a5",
+      "bytes": 59395
+    },
+    "services/inoproshop-mcp/docs/ACCEPTANCE_MATRIX.md": {
+      "sha256": "b07d688d4e4ce03ad925ba6f4c247d278c9265eed68f5e9568f86dcae6b3718d",
+      "bytes": 35366
+    },
+    "services/inoproshop-mcp/docs/ENGINEERING_EXTENSIONS.md": {
+      "sha256": "8211b1a41388e7025bc0bc2ffee448eca4c07131b5a46edd91c66198b109443e",
+      "bytes": 5435
+    },
+    "services/inoproshop-mcp/docs/ENGINEERING_EXTENSIONS_ACCEPTANCE.md": {
+      "sha256": "9b2534afaeb9a25f0688cd0f127276c41c2fe8ecc9f2f4d1e885073317f1c649",
+      "bytes": 6202
+    },
+    "services/inoproshop-mcp/docs/GRAPH_BACKEND.md": {
+      "sha256": "37333f61e8903c273b275bbb5c8aa0b353c4cb62475576819dbd9b9de900d258",
+      "bytes": 7680
+    },
+    "services/inoproshop-mcp/docs/OFFLINE_README.md": {
+      "sha256": "f4dda68d461b5f5fa56f49127c6fe97feefad98ca23c6b04cc28810d5331d2e0",
+      "bytes": 12604
+    },
+    "services/inoproshop-mcp/docs/RECOVERY.md": {
+      "sha256": "fd407cf422b3094acfc759d7329881ef8186c05f9b7885f297e4387d4a2a0cbd",
+      "bytes": 6818
+    },
+    "services/inoproshop-mcp/docs/RELEASE_REPORT.md": {
+      "sha256": "9f98b9b7e2567677ec097dba1dbf97547d59e08b475ff24351bf80d13705b830",
+      "bytes": 12100
+    },
+    "services/inoproshop-mcp/docs/THIRD_PARTY_OFFLINE.md": {
+      "sha256": "92683cdef4aecd33b53d51ca7c52d989e3eee43b20bbc84699b77a61ad418956",
+      "bytes": 2150
+    },
+    "services/inoproshop-mcp/fixtures/evaluation/README.md": {
+      "sha256": "66201be3d8ce3dd94df95724d82f81baa8e9358f8894142bd2e1897d13eb5f1f",
+      "bytes": 1879
+    },
+    "services/inoproshop-mcp/fixtures/evaluation/evaluation-template.json": {
+      "sha256": "fa158dc3be9a1c8c4912c61ec00fdfe17ce5f5aa9b44f02d45c80954077a3b51",
+      "bytes": 694
+    },
+    "services/inoproshop-mcp/fixtures/evaluation/sources.json": {
+      "sha256": "e11cf60686f30557a97a465d54d59424e0f5bce471ff170a6b40fed1a3ff3266",
+      "bytes": 2404
+    },
+    "services/inoproshop-mcp/fixtures/evaluation/tasks.json": {
+      "sha256": "62ba324a240adfef6bc23d4f42c45cc09e432ad32e2966e1801d59464ace93ab",
+      "bytes": 10126
+    },
+    "services/inoproshop-mcp/fixtures/index/README.md": {
+      "sha256": "c3304c8cffecf447c04db05a268667a323bd4519a198e74d26594529b919ac8e",
+      "bytes": 4849
+    },
+    "services/inoproshop-mcp/fixtures/index/golden.json": {
+      "sha256": "d552055f2347e911df44ff8c2c408724d7490bf9f22f2042861468b0a21b1e37",
+      "bytes": 1714
+    },
+    "services/inoproshop-mcp/launcher-runtime-lock.json": {
+      "sha256": "1d55171dbe27cb3fd2bf5fd5b2dc9d26deb857043964031b2157684da7445867",
+      "bytes": 1778
+    },
+    "services/inoproshop-mcp/pyproject.toml": {
+      "sha256": "198ab233b12b44028a20461c04b37482a44da303c10edc366f44c841d7f25d68",
+      "bytes": 716
+    },
+    "services/inoproshop-mcp/requirements-cgc-adapter.lock": {
+      "sha256": "18527f32aa724079418b4dfd62fafadf266e4aec3ef110f9eeb21e5e6342feb4",
+      "bytes": 200
+    },
+    "services/inoproshop-mcp/scripts/Connect-Ino.ps1": {
+      "sha256": "7669851c57c8d4eed7623ed6ecd34766c438129efd083d68e6dfea35d7b1753e",
+      "bytes": 17380
+    },
+    "services/inoproshop-mcp/scripts/Install.ps1": {
+      "sha256": "061118c0760f287b7264df7ace88c25fd366db908f9daf73a83fec08e8956936",
+      "bytes": 1237
+    },
+    "services/inoproshop-mcp/scripts/Start-OMP.ps1": {
+      "sha256": "5c80de0a3195766480bbdd4a6cdedbdc88e53b59c5b71fb1c07e77df004fcff7",
+      "bytes": 4691
+    },
+    "services/inoproshop-mcp/scripts/Start-Service.ps1": {
+      "sha256": "51cdaa0b9354d4430b37dfe99a2d520e9fc84b97be849383b4d2842784777d55",
+      "bytes": 2104
+    },
+    "services/inoproshop-mcp/scripts/build-offline-release.py": {
+      "sha256": "3f614923bd81eaff689408f241046a843092f9fc4da6642ba254a2260ae9026f",
+      "bytes": 8818
+    },
+    "services/inoproshop-mcp/scripts/build-release.py": {
+      "sha256": "5d9d13f6745975f4be3db0b948db99c55a098ea8a60ccdf83d0bb66b15156cd9",
+      "bytes": 5743
+    },
+    "services/inoproshop-mcp/scripts/evaluate.py": {
+      "sha256": "f098c6cba9653c92eda4bf1ec8ce1f286f32c7963d689e06659c25fbeff8888e",
+      "bytes": 13822
+    },
+    "services/inoproshop-mcp/scripts/launcher-native-smoke.py": {
+      "sha256": "2445f985442e7f9d423e3b004f2f24827f2882b7619fd5bf6b176eaffba5f205",
+      "bytes": 20116
+    },
+    "services/inoproshop-mcp/scripts/omp-model-worker.ts": {
+      "sha256": "128ef3f00b12b88e4da610a07b20937a7a7faf85362cba9d05bcf1a8dac2b954",
+      "bytes": 5140
+    },
+    "services/inoproshop-mcp/scripts/omp-native-tool-worker.ts": {
+      "sha256": "f4b0476d06cd121a477d2d240dffa12bc11598c150f6e546146a2b58bf5b9164",
+      "bytes": 12390
+    },
+    "services/inoproshop-mcp/scripts/omp-smoke.ts": {
+      "sha256": "20d80c5d421fdb48963d3cb1fd4452a7252c6256a183277d03988cbd851de9f8",
+      "bytes": 5004
+    },
+    "services/inoproshop-mcp/scripts/protocol-smoke.py": {
+      "sha256": "8cabd4e680039a6dfc62e62ba5619ffd74433ab1c6a434c39ebe9d3d082903a0",
+      "bytes": 4822
+    },
+    "services/inoproshop-mcp/scripts/run-model-evaluation.py": {
+      "sha256": "bf08cd193c81c634b65a6f10ad0f71b3d397dddfcde7f35f5a7b7ca239f6116e",
+      "bytes": 16688
+    },
+    "services/inoproshop-mcp/scripts/verify-offline.py": {
+      "sha256": "33d9b665485773e9c6a6cbad1dc84d2bc5de652889f07229be1c086a0ea92b39",
+      "bytes": 1502
+    },
+    "services/inoproshop-mcp/skills/inoproshop/SKILL.md": {
+      "sha256": "ba8cf8ca0b1b95498f8b78b13de17b331fac6e84ed9794341d6490812dfd64e6",
+      "bytes": 6612
+    },
+    "services/inoproshop-mcp/src/inoproshop_mcp/__init__.py": {
+      "sha256": "49d950969a99eb0b3572a5031f8210bd35512f8dad47b3a7722d7f3226dda593",
+      "bytes": 99
+    },
+    "services/inoproshop-mcp/src/inoproshop_mcp/__main__.py": {
+      "sha256": "3d1a726ad5bb70caca049a27493e40b093963990357d4ff90b904178395ea9ea",
+      "bytes": 5964
+    },
+    "services/inoproshop-mcp/src/inoproshop_mcp/cgc_backend.py": {
+      "sha256": "49de14d85334c8d146fe34d64826ebc0d1e6530218e41bbcc884d919cb64da16",
+      "bytes": 8743
+    },
+    "services/inoproshop-mcp/src/inoproshop_mcp/changes.py": {
+      "sha256": "fcdc1e636f1ea66f1e882ebdb46d359e270f587964c10878847844d4b744e3a7",
+      "bytes": 11132
+    },
+    "services/inoproshop-mcp/src/inoproshop_mcp/common.py": {
+      "sha256": "10f8c581e46f26500544b1f24e7aad8fdf1fa38a944d078e380ab9617055413f",
+      "bytes": 2511
+    },
+    "services/inoproshop-mcp/src/inoproshop_mcp/core.py": {
+      "sha256": "ba78d7511faa9e7f4623f3eecbee99430120f6416c8e42c01cf87044c2f79d1c",
+      "bytes": 61790
+    },
+    "services/inoproshop-mcp/src/inoproshop_mcp/index.py": {
+      "sha256": "144c47f6592997b4e6814a809eb8d5cc0a86a05bfaef1e531152f56bc0541dfe",
+      "bytes": 38044
+    },
+    "services/inoproshop-mcp/src/inoproshop_mcp/launcher.py": {
+      "sha256": "06305574f7016e7ce020e1e51292e2f87d6c5d99c81d79f8b68bcf9c5f79a55c",
+      "bytes": 16983
+    },
+    "services/inoproshop-mcp/src/inoproshop_mcp/launcher_database.py": {
+      "sha256": "f0dd46cc8fbb4b622887192ee602a13d8253f943eb403503a67d594b5828a1e7",
+      "bytes": 24414
+    },
+    "services/inoproshop-mcp/src/inoproshop_mcp/launcher_host.py": {
+      "sha256": "0d77584b58276fb89cac6f2fa2bea6bd3807eaf7be439116841814844ae6828b",
+      "bytes": 24711
+    },
+    "services/inoproshop-mcp/src/inoproshop_mcp/server.py": {
+      "sha256": "76cd8c200bd73b89efcbce758d657b4a41c6eebd4d8584f553e2bbc81cd431a2",
+      "bytes": 17276
+    },
+    "services/inoproshop-mcp/src/inoproshop_mcp/store.py": {
+      "sha256": "530303983584550408013dd91df9a545f36d7951a8834b26b9c3f197e22f5f27",
+      "bytes": 8331
+    },
+    "services/inoproshop-mcp/src/inoproshop_mcp/templates.py": {
+      "sha256": "38998dc9e51e7c497871a2ddd59606191cc1d9f761ea7539ba32522c574e64e9",
+      "bytes": 5974
+    },
+    "services/inoproshop-mcp/src/inoproshop_mcp/text_search.py": {
+      "sha256": "698d43a0de4b0b06f15b5d1760437e3192be4aa518a5e0719a680310bb5b9021",
+      "bytes": 3229
+    },
+    "services/inoproshop-mcp/src/inoproshop_mcp/transport.py": {
+      "sha256": "82823a985c5a6827f70ccbf3fb8c1239330e7041a77b16dc5e92b734fc560e56",
+      "bytes": 8513
+    },
+    "services/inoproshop-mcp/tests/server_process_fixture.py": {
+      "sha256": "4ebe9c54c4570ac72d7093faff248f88e932f9e51e93359c244432a3406f2444",
+      "bytes": 6272
+    },
+    "services/inoproshop-mcp/tests/test_acceptance_edges.py": {
+      "sha256": "c5685fb554618fefada3a3003411719cf7cc93d2ed7432ff15319e3cb0b73dbb",
+      "bytes": 9782
+    },
+    "services/inoproshop-mcp/tests/test_adapter_capabilities.py": {
+      "sha256": "2bb98ff6dfd6ec51be0f6d72a1ff0df3aa27e1eb43f33526abdfde699ce2ec88",
+      "bytes": 4571
+    },
+    "services/inoproshop-mcp/tests/test_core.py": {
+      "sha256": "af0bf149bd9a28a5decbe602fcc41c4ec1bd87bdffa0d4fe02d6801fad232146",
+      "bytes": 28196
+    },
+    "services/inoproshop-mcp/tests/test_engineering_extensions.py": {
+      "sha256": "9c35956e332b885d45579009ef1aa70b2cec9bd397b0f5a6fa561e4c0623bdd3",
+      "bytes": 18749
+    },
+    "services/inoproshop-mcp/tests/test_evaluation_metrics.py": {
+      "sha256": "ea60b0286f367f8c6bee1690b96007f57a1066868b77b0a031e41dde0f72bb2a",
+      "bytes": 2609
+    },
+    "services/inoproshop-mcp/tests/test_index.py": {
+      "sha256": "c8bf45dd7ee8804747d369493e5220e88669d671fb218fa6fe8131ba1e1656f6",
+      "bytes": 11682
+    },
+    "services/inoproshop-mcp/tests/test_index_cgc.py": {
+      "sha256": "ffb0e72683c142a21811ac8d9bef8360cb14a72826cb38991c61f5912ce0a13e",
+      "bytes": 5647
+    },
+    "services/inoproshop-mcp/tests/test_index_commit_gap.py": {
+      "sha256": "b3a06f1da200bedac2ce2009075fb2480734b0defb0bf314889e77b8f2373d2f",
+      "bytes": 9990
+    },
+    "services/inoproshop-mcp/tests/test_launcher.py": {
+      "sha256": "f89aab166baa6ab190c181c313ca2ae49cd0030f332c4ed0d2f6bf4c2f9c5e3b",
+      "bytes": 5934
+    },
+    "services/inoproshop-mcp/tests/test_launcher_bootstrap.py": {
+      "sha256": "c01a78309b00cefa389dda497a1844f1caaf5b2c648fc84098dc2cdde0a519de",
+      "bytes": 19300
+    },
+    "services/inoproshop-mcp/tests/test_launcher_database.py": {
+      "sha256": "ed729fb48629b8a7c897becc1ec6b253087906690d8706baee996af25d91f6ba",
+      "bytes": 12458
+    },
+    "services/inoproshop-mcp/tests/test_launcher_host.py": {
+      "sha256": "fe4925ebde62a8199e6f2be8531ab5caaaffd68e2c11396df805391da66f9752",
+      "bytes": 13733
+    },
+    "services/inoproshop-mcp/tests/test_launcher_identity.py": {
+      "sha256": "d30d85c8d88f26684285cff6a476544d9b90df3592b1f48f9285c4a0da7e6022",
+      "bytes": 5040
+    },
+    "services/inoproshop-mcp/tests/test_launcher_release.py": {
+      "sha256": "5378efd83c96890b3eb1ad2ee88ae1990891891a3ccd58f776e45ab9afb93f68",
+      "bytes": 1629
+    },
+    "services/inoproshop-mcp/tests/test_offline_release.py": {
+      "sha256": "9605ce3934350cc5a172a88347cabcc6d8bf6a7890d5b08fdee0216ced776146",
+      "bytes": 3677
+    },
+    "services/inoproshop-mcp/tests/test_omp_launcher.py": {
+      "sha256": "97ed4311937858468f3657908574ab094e4a881d2acdacbf39a80c9004f67e65",
+      "bytes": 5607
+    },
+    "services/inoproshop-mcp/tests/test_server_cli.py": {
+      "sha256": "25ab4d28c3220a16926f853306536bc1b0518442e195d41310d9905770f42a58",
+      "bytes": 1917
+    },
+    "services/inoproshop-mcp/tests/test_server_evaluation.py": {
+      "sha256": "fc8b2704521f1d96c5615a748aea3f00c7a10c61ee98b58b04accf217a09cf35",
+      "bytes": 4293
+    },
+    "services/inoproshop-mcp/tests/test_server_http.py": {
+      "sha256": "077a6287e9f324210d1c9ebfac15b6d07f919ab7cc159a2923677c613dd104bc",
+      "bytes": 10483
+    },
+    "services/inoproshop-mcp/tests/test_server_process.py": {
+      "sha256": "97f6404bc6ea9ae7a7e0029f2eaed45ed78cbec66d89280b66900827525a4c20",
+      "bytes": 7115
+    },
+    "services/inoproshop-mcp/tests/test_workflow_boundaries.py": {
+      "sha256": "9fbd805d5fd7d3be0dc39e983dc0bb2a379de048a76ae4b30fd109afa61d0030",
+      "bytes": 5416
+    },
+    "services/inoproshop-mcp/uv.lock": {
+      "sha256": "66dbfad9457dadd12e7541b4a9fb194f7c6867de3fb69d85a7c2ac36b3fb5940",
+      "bytes": 241862
+    },
+    "templates/README.md": {
+      "sha256": "ca8a966c42210328914b414a8f030c20f09783a53a66efbe4e29bf7a10285dea",
+      "bytes": 2324
+    },
+    "templates/catalog.json": {
+      "sha256": "b367badcc932a48e04762848f2ba8f830e8a6f388dc5abec59af746616a94dc2",
+      "bytes": 472
+    }
+  },
+  "note": "Only reviewed product source and docs extracted from the exact offline ZIP; repository overview and publication docs added separately."
+}

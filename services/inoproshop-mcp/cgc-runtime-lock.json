@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "adapter": "inoproshop_mcp.cgc_backend.CGCNeo4jBackend",
+  "cgc_interface": "codegraphcontext.core.database.DatabaseManager",
+  "codegraphcontext": "0.6.13",
+  "neo4j_python_driver": "5.28.2",
+  "pytz": "2025.2",
+  "neo4j_server": "5.26.12",
+  "neo4j_archive_url": "https://dist.neo4j.org/neo4j-community-5.26.12-windows.zip",
+  "neo4j_archive_sha256": "d8f4fc840bd8108ae811a960910208b63b5d75b1f837ed4ec837b5b8d8e268ab",
+  "java_major": 21,
+  "verified_java_runtime": "OpenJDK JBR-21.0.6+9-b895.109",
+  "python_verified": "3.12.7",
+  "database_backend": "neo4j",
+  "database_namespace": "inoproshop_mcp_plc_ir_v1",
+  "graph_schema": "plc-ir/1.0.0",
+  "parser": "inoproshop-st-p0/1.0.0",
+  "notes": [
+    "JAVA_HOME can point to any independently installed compatible Java 21 distribution; IntelliJ IDEA is not a product dependency.",
+    "Java 24 started the database but produced an unsupported-runtime warning; only the subsequent Java 21 run is the supported-version evidence.",
+    "The adapter uses CGC's Neo4j DatabaseManager and PLC-specific Cypher. Generic CGC ST parsing and the CGC MCP server are not claimed.",
+    "The minimal isolated adapter installation intentionally omits unused CGC CLI, generic parsers and other graph backends. Use the complete cgc extra when those upstream components are needed."
+  ]
+}

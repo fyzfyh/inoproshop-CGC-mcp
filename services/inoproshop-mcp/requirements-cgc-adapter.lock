@@ -1,0 +1,5 @@
+# Minimal imports used by the PLC adapter. Install with --no-deps in an isolated
+# environment; this is not a full CGC CLI/MCP server installation.
+codegraphcontext==0.6.13
+neo4j==5.28.2
+pytz==2025.2

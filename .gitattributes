@@ -1,0 +1,2 @@
+# Preserve release-source bytes for bridge fingerprints and reproducible comparisons.
+* -text

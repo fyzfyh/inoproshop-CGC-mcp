@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "platform": "windows-x86_64",
+  "uv": {
+    "version": "0.12.23",
+    "archive_url": "https://releases.astral.sh/github/uv/releases/download/0.12.23/uv-x86_64-pc-windows-msvc.zip",
+    "archive_sha256": "75d05de6762778c31ee183398de7dd15093fad0ed90b1f236d8205ea5ec00c90",
+    "checksum_url": "https://releases.astral.sh/github/uv/releases/download/0.12.23/uv-x86_64-pc-windows-msvc.zip.sha256"
+  },
+  "python": {
+    "version": "3.12.7",
+    "managed_key": "cpython-3.12.7-windows-x86_64-none",
+    "build": "20241016",
+    "archive_url": "https://github.com/astral-sh/python-build-standalone/releases/download/20241016/cpython-3.12.7%2B20241016-x86_64-pc-windows-msvc-install_only_stripped.tar.gz",
+    "archive_sha256": "fa8ac308a7cd1774d599ad9a29f1e374fbdc11453b12a8c50cc4afdb5c4bfd1a",
+    "metadata_url": "https://raw.githubusercontent.com/astral-sh/uv/0.12.23/crates/uv-python/download-metadata.json",
+    "integrity": "Verified by the pinned uv binary against its bundled download metadata."
+  },
+  "java": {
+    "version": "21.0.6+7",
+    "archive_url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.6%2B7/OpenJDK21U-jre_x64_windows_hotspot_21.0.6_7.zip",
+    "archive_sha256": "707c981a4ff9e680a9ea5d6f625eafe8bc47e1f89140a67d761fde24fc02ab49",
+    "archive_root": "jdk-21.0.6+7-jre",
+    "checksum_url": "https://github.com/adoptium/temurin21-binaries/releases/download/jdk-21.0.6%2B7/OpenJDK21U-jre_x64_windows_hotspot_21.0.6_7.zip.sha256.txt"
+  },
+  "neo4j": {
+    "version": "5.26.12",
+    "archive_url": "https://dist.neo4j.org/neo4j-community-5.26.12-windows.zip",
+    "archive_sha256": "d8f4fc840bd8108ae811a960910208b63b5d75b1f837ed4ec837b5b8d8e268ab",
+    "source_lock": "cgc-runtime-lock.json"
+  }
+}

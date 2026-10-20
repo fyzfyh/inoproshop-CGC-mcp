@@ -1,0 +1,56 @@
+{
+  "status": "passed_in_available_environment",
+  "archive": "InoProShop-MCP-Offline-Windows-x64-20261020.zip",
+  "sha256": "dcec329a5850d207b534fdd6762790ab88b7f358a9cfb379374b22f4a5d495c3",
+  "zip_bytes": 232543070,
+  "uncompressed_bytes": 371794683,
+  "payload_files_verified": 7801,
+  "source_files_match_workspace": 105,
+  "release_folder_contains_user_state": false,
+  "runtime": {
+    "platform": "Windows x64",
+    "python": "3.12.7",
+    "java": "21.0.6+7",
+    "neo4j": "5.26.12"
+  },
+  "preinstalled": {
+    "inoproshop": "1.10.0.3",
+    "ohmypi": "18.8.7"
+  },
+  "packaged_tests": {
+    "passed_unique": 273,
+    "skipped": 1,
+    "failed": 0,
+    "path_isolated_run": {
+      "passed": 252,
+      "skipped": 22
+    },
+    "powershell7_supplemental_passed": 21,
+    "counting": "Unique (classname,name); replace 21 PATH-related skips with their passing reruns, no double counting.",
+    "remaining_skip_reason": "Historical AM600/AM402 local evidence is not bundled; synthetic golden coverage remains mandatory."
+  },
+  "offline_test": {
+    "fresh_unicode_and_spaces_path": true,
+    "system_python_java_uv_on_PATH": false,
+    "fresh_database_initialization": true,
+    "authenticated_write_restart_persistence": true,
+    "first_launch_seconds": 22.438,
+    "repeat_launch_seconds": 6.406,
+    "diagnostic_read_only": true,
+    "local_tools": 26,
+    "native_read_graph_omp_checks": 15,
+    "new_feature_checks": 7,
+    "original_sample_unchanged": true,
+    "external_python_network_attempts": 0,
+    "owned_test_processes_cleaned": true
+  },
+  "earlier_native_feature_evidence": {
+    "checks": 27,
+    "source_sha256_matches_packaged_files": 9,
+    "scope": "Earlier native edit/compile/recovery validation of identical frozen logic; not rerun as offline-boot checks."
+  },
+  "model_invoked": false,
+  "native_compile_invoked_during_offline_acceptance": false,
+  "clean_windows_vm_tested": false,
+  "second_physical_computer_tested": false
+}

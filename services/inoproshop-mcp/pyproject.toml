@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "inoproshop-mcp"
+version = "0.1.0"
+description = "Local InoProShop MCP service with explicit project and snapshot contracts"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "mcp==1.30.0",
+  "pydantic>=2.11,<3",
+  "uvicorn>=0.35,<1",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.3,<10", "pytest-asyncio>=1,<2", "httpx>=0.28,<1"]
+cgc = ["codegraphcontext==0.6.13", "neo4j==5.28.2", "pytz==2025.2"]
+
+[project.scripts]
+inoproshop-mcp = "inoproshop_mcp.__main__:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/inoproshop_mcp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+

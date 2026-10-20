@@ -1,0 +1,2195 @@
+{
+  "version": "0.1.0",
+  "tools": [
+    {
+      "name": "ino_get_capabilities",
+      "description": "Inspect verified/limited/blocked capabilities; do not infer capabilities from method names.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "host_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Id"
+          },
+          "host_instance_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Instance Id"
+          },
+          "project_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Project Id"
+          }
+        },
+        "title": "Capabilities",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "ino_list_hosts",
+      "description": "List registered InoProShop bridge instances, not arbitrary Windows processes.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Input",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "ino_list_projects",
+      "description": "List registered projects and their explicit host bindings and memory state.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "host_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Id"
+          },
+          "host_instance_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Instance Id"
+          }
+        },
+        "title": "HostFilter",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "ino_open_project",
+      "description": "Open an isolated project copy on the specified host. Never overwrite a dirty user project.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "source": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "title": "Source",
+            "type": "string"
+          },
+          "destination": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "title": "Destination",
+            "type": "string"
+          },
+          "host_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Host Id",
+            "type": "string"
+          },
+          "host_instance_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Host Instance Id",
+            "type": "string"
+          },
+          "idempotency_key": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Idempotency Key",
+            "type": "string"
+          }
+        },
+        "required": [
+          "source",
+          "destination",
+          "host_id",
+          "host_instance_id",
+          "idempotency_key"
+        ],
+        "title": "OpenProject",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "ino_list_project_templates",
+      "description": "List explicit local templates with pinned bytes, model and expected native controller identity. Missing or changed templates are not ready.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {},
+        "title": "Input",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "ino_create_project",
+      "description": "Open a new copy of a hash-bound template and verify its native root controller. Failed or unknown verification blocks source writes.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "template_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Template Id",
+            "type": "string"
+          },
+          "template_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Template Hash",
+            "type": "string"
+          },
+          "destination": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "title": "Destination",
+            "type": "string"
+          },
+          "host_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Host Id",
+            "type": "string"
+          },
+          "host_instance_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Host Instance Id",
+            "type": "string"
+          },
+          "idempotency_key": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Idempotency Key",
+            "type": "string"
+          }
+        },
+        "required": [
+          "template_id",
+          "template_hash",
+          "destination",
+          "host_id",
+          "host_instance_id",
+          "idempotency_key"
+        ],
+        "title": "CreateProject",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "ino_capture_snapshot",
+      "description": "Capture current host-object-model content, including synchronized unsaved source, into an immutable snapshot.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "host_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Id"
+          },
+          "host_instance_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Instance Id"
+          },
+          "project_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Project Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "project_id"
+        ],
+        "title": "Project",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "ino_read_object",
+      "description": "Read object tree or paginated ST/GVL source from a fixed snapshot with GUID and source locations.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "host_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Id"
+          },
+          "host_instance_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Instance Id"
+          },
+          "project_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Project Id",
+            "type": "string"
+          },
+          "snapshot_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Snapshot Id",
+            "type": "string"
+          },
+          "object_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Object Id"
+          },
+          "section": {
+            "default": "both",
+            "enum": [
+              "both",
+              "declaration",
+              "implementation"
+            ],
+            "title": "Section",
+            "type": "string"
+          },
+          "offset": {
+            "default": 0,
+            "minimum": 0,
+            "title": "Offset",
+            "type": "integer"
+          },
+          "limit": {
+            "default": 100,
+            "maximum": 500,
+            "minimum": 1,
+            "title": "Limit",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "project_id",
+          "snapshot_id"
+        ],
+        "title": "ReadObject",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "ino_read_configuration",
+      "description": "Read supported configuration facts from a fixed snapshot; missing fields remain explicitly unknown.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "host_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Id"
+          },
+          "host_instance_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Instance Id"
+          },
+          "project_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Project Id",
+            "type": "string"
+          },
+          "snapshot_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Snapshot Id",
+            "type": "string"
+          },
+          "category": {
+            "default": "task",
+            "enum": [
+              "task",
+              "device",
+              "library",
+              "io"
+            ],
+            "title": "Category",
+            "type": "string"
+          }
+        },
+        "required": [
+          "project_id",
+          "snapshot_id"
+        ],
+        "title": "ReadConfiguration",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "ino_export_context",
+      "description": "Export a fixed snapshot as an AI context package with source and coverage manifests.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "host_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Id"
+          },
+          "host_instance_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Instance Id"
+          },
+          "project_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Project Id",
+            "type": "string"
+          },
+          "snapshot_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Snapshot Id",
+            "type": "string"
+          },
+          "destination": {
+            "anyOf": [
+              {
+                "maxLength": 4096,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Destination"
+          }
+        },
+        "required": [
+          "project_id",
+          "snapshot_id"
+        ],
+        "title": "ExportContext",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "context_index_snapshot",
+      "description": "Build and publish a versioned PLC symbol graph for this immutable snapshot.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "host_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Id"
+          },
+          "host_instance_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Instance Id"
+          },
+          "project_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Project Id",
+            "type": "string"
+          },
+          "snapshot_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Snapshot Id",
+            "type": "string"
+          },
+          "idempotency_key": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Idempotency Key"
+          }
+        },
+        "required": [
+          "project_id",
+          "snapshot_id"
+        ],
+        "title": "IndexSnapshot",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "context_search",
+      "description": "Search the PLC snapshot graph with source evidence, bounded results, and index revision.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "host_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Id"
+          },
+          "host_instance_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Instance Id"
+          },
+          "project_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Project Id",
+            "type": "string"
+          },
+          "snapshot_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Snapshot Id",
+            "type": "string"
+          },
+          "query": {
+            "maxLength": 8192,
+            "minLength": 1,
+            "title": "Query",
+            "type": "string"
+          },
+          "limit": {
+            "default": 50,
+            "maximum": 500,
+            "minimum": 1,
+            "title": "Limit",
+            "type": "integer"
+          },
+          "offset": {
+            "default": 0,
+            "minimum": 0,
+            "title": "Offset",
+            "type": "integer"
+          },
+          "index_revision": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Index Revision"
+          }
+        },
+        "required": [
+          "project_id",
+          "snapshot_id",
+          "query"
+        ],
+        "title": "Search",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "context_search_text",
+      "description": "Search available immutable snapshot text literally without any graph backend or host calls. Text matches are not semantic references.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "host_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Id"
+          },
+          "host_instance_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Instance Id"
+          },
+          "project_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Project Id",
+            "type": "string"
+          },
+          "snapshot_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Snapshot Id",
+            "type": "string"
+          },
+          "query": {
+            "maxLength": 8192,
+            "minLength": 1,
+            "title": "Query",
+            "type": "string"
+          },
+          "section": {
+            "default": "both",
+            "enum": [
+              "both",
+              "declaration",
+              "implementation"
+            ],
+            "title": "Section",
+            "type": "string"
+          },
+          "object_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Object Id"
+          },
+          "case_sensitive": {
+            "default": false,
+            "title": "Case Sensitive",
+            "type": "boolean"
+          },
+          "context_lines": {
+            "default": 0,
+            "maximum": 5,
+            "minimum": 0,
+            "title": "Context Lines",
+            "type": "integer"
+          },
+          "offset": {
+            "default": 0,
+            "minimum": 0,
+            "title": "Offset",
+            "type": "integer"
+          },
+          "limit": {
+            "default": 50,
+            "maximum": 500,
+            "minimum": 1,
+            "title": "Limit",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "project_id",
+          "snapshot_id",
+          "query"
+        ],
+        "title": "TextSearch",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "context_find_references",
+      "description": "Find scope-aware references using a stable symbol ID; distinguish uncertain candidate edges.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "host_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Id"
+          },
+          "host_instance_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Instance Id"
+          },
+          "project_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Project Id",
+            "type": "string"
+          },
+          "snapshot_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Snapshot Id",
+            "type": "string"
+          },
+          "symbol_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Symbol Id",
+            "type": "string"
+          },
+          "relation": {
+            "anyOf": [
+              {
+                "enum": [
+                  "READS",
+                  "WRITES",
+                  "CALLS",
+                  "DECLARES",
+                  "EXECUTES",
+                  "TYPE_OF",
+                  "INSTANCE_OF",
+                  "CONTAINS"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Relation"
+          },
+          "index_revision": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Index Revision"
+          },
+          "limit": {
+            "default": 50,
+            "maximum": 500,
+            "minimum": 1,
+            "title": "Limit",
+            "type": "integer"
+          },
+          "offset": {
+            "default": 0,
+            "minimum": 0,
+            "title": "Offset",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "project_id",
+          "snapshot_id",
+          "symbol_id"
+        ],
+        "title": "References",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "context_get_impact",
+      "description": "Return a bounded dependency/impact graph with coverage and uncertain relations.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "host_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Id"
+          },
+          "host_instance_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Instance Id"
+          },
+          "project_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Project Id",
+            "type": "string"
+          },
+          "snapshot_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Snapshot Id",
+            "type": "string"
+          },
+          "object_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Object Id",
+            "type": "string"
+          },
+          "max_depth": {
+            "default": 3,
+            "maximum": 10,
+            "minimum": 1,
+            "title": "Max Depth",
+            "type": "integer"
+          },
+          "index_revision": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Index Revision"
+          },
+          "limit": {
+            "default": 50,
+            "maximum": 500,
+            "minimum": 1,
+            "title": "Limit",
+            "type": "integer"
+          },
+          "offset": {
+            "default": 0,
+            "minimum": 0,
+            "title": "Offset",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "project_id",
+          "snapshot_id",
+          "object_id"
+        ],
+        "title": "Impact",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "ino_preview_change",
+      "description": "Preview a single ST implementation or declaration/implementation edit preserving POU identity, or a new FB with an explicit caller. Return immutable diffs and exact patch hash without writing source.",
+      "inputSchema": {
+        "$defs": {
+          "Caller": {
+            "additionalProperties": false,
+            "properties": {
+              "object_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "title": "Object Id",
+                "type": "string"
+              },
+              "instance_name": {
+                "maxLength": 128,
+                "minLength": 1,
+                "title": "Instance Name",
+                "type": "string"
+              },
+              "inputs": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "title": "Inputs",
+                "type": "object"
+              },
+              "outputs": {
+                "additionalProperties": {
+                  "type": "string"
+                },
+                "title": "Outputs",
+                "type": "object"
+              },
+              "insert_after_line": {
+                "minimum": 0,
+                "title": "Insert After Line",
+                "type": "integer"
+              },
+              "condition": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "title": "Condition"
+              }
+            },
+            "required": [
+              "object_id",
+              "instance_name",
+              "insert_after_line",
+              "condition"
+            ],
+            "title": "Caller",
+            "type": "object"
+          },
+          "CreateST": {
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "const": "create_st_pou",
+                "title": "Type",
+                "type": "string"
+              },
+              "name": {
+                "maxLength": 80,
+                "minLength": 1,
+                "title": "Name",
+                "type": "string"
+              },
+              "declaration": {
+                "maxLength": 1000000,
+                "minLength": 1,
+                "title": "Declaration",
+                "type": "string"
+              },
+              "implementation": {
+                "maxLength": 1000000,
+                "title": "Implementation",
+                "type": "string"
+              },
+              "caller": {
+                "$ref": "#/$defs/Caller"
+              }
+            },
+            "required": [
+              "type",
+              "name",
+              "declaration",
+              "implementation",
+              "caller"
+            ],
+            "title": "CreateST",
+            "type": "object"
+          },
+          "ReplaceST": {
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "const": "replace_st_implementation",
+                "title": "Type",
+                "type": "string"
+              },
+              "object_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "title": "Object Id",
+                "type": "string"
+              },
+              "implementation": {
+                "maxLength": 1000000,
+                "title": "Implementation",
+                "type": "string"
+              }
+            },
+            "required": [
+              "type",
+              "object_id",
+              "implementation"
+            ],
+            "title": "ReplaceST",
+            "type": "object"
+          },
+          "ReplaceSTSections": {
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "const": "replace_st_sections",
+                "title": "Type",
+                "type": "string"
+              },
+              "object_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "title": "Object Id",
+                "type": "string"
+              },
+              "declaration": {
+                "anyOf": [
+                  {
+                    "maxLength": 200000,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Declaration"
+              },
+              "implementation": {
+                "anyOf": [
+                  {
+                    "maxLength": 200000,
+                    "type": "string"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ],
+                "default": null,
+                "title": "Implementation"
+              }
+            },
+            "required": [
+              "type",
+              "object_id"
+            ],
+            "title": "ReplaceSTSections",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "host_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Id"
+          },
+          "host_instance_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Instance Id"
+          },
+          "project_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Project Id",
+            "type": "string"
+          },
+          "snapshot_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Snapshot Id",
+            "type": "string"
+          },
+          "change": {
+            "discriminator": {
+              "mapping": {
+                "create_st_pou": "#/$defs/CreateST",
+                "replace_st_implementation": "#/$defs/ReplaceST",
+                "replace_st_sections": "#/$defs/ReplaceSTSections"
+              },
+              "propertyName": "type"
+            },
+            "oneOf": [
+              {
+                "$ref": "#/$defs/ReplaceST"
+              },
+              {
+                "$ref": "#/$defs/ReplaceSTSections"
+              },
+              {
+                "$ref": "#/$defs/CreateST"
+              }
+            ],
+            "title": "Change"
+          },
+          "mode": {
+            "default": "strict",
+            "enum": [
+              "strict",
+              "repair"
+            ],
+            "title": "Mode",
+            "type": "string"
+          },
+          "allow_partial_repair": {
+            "default": false,
+            "title": "Allow Partial Repair",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "project_id",
+          "snapshot_id",
+          "change"
+        ],
+        "title": "PreviewChange",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "ino_apply_change",
+      "description": "Apply an explicitly authorized immutable patch with backup, readback and native compile. Never retry an unknown write outcome.",
+      "inputSchema": {
+        "$defs": {
+          "Authorization": {
+            "additionalProperties": false,
+            "properties": {
+              "project_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "title": "Project Id",
+                "type": "string"
+              },
+              "patch_id": {
+                "maxLength": 256,
+                "minLength": 1,
+                "title": "Patch Id",
+                "type": "string"
+              },
+              "patch_hash": {
+                "pattern": "^[0-9a-f]{64}$",
+                "title": "Patch Hash",
+                "type": "string"
+              },
+              "source": {
+                "const": "user_task",
+                "title": "Source",
+                "type": "string"
+              }
+            },
+            "required": [
+              "project_id",
+              "patch_id",
+              "patch_hash",
+              "source"
+            ],
+            "title": "Authorization",
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "host_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Id"
+          },
+          "host_instance_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Instance Id"
+          },
+          "project_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Project Id",
+            "type": "string"
+          },
+          "patch_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Patch Id",
+            "type": "string"
+          },
+          "idempotency_key": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Idempotency Key",
+            "type": "string"
+          },
+          "authorization": {
+            "$ref": "#/$defs/Authorization"
+          },
+          "save_destination": {
+            "anyOf": [
+              {
+                "maxLength": 4096,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Save Destination"
+          }
+        },
+        "required": [
+          "project_id",
+          "patch_id",
+          "idempotency_key",
+          "authorization"
+        ],
+        "title": "ApplyChange",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "ino_compile",
+      "description": "Compile the bound active Application and preserve actual scope, completion evidence and original diagnostics.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "host_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Id"
+          },
+          "host_instance_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Instance Id"
+          },
+          "project_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Project Id",
+            "type": "string"
+          },
+          "idempotency_key": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Idempotency Key",
+            "type": "string"
+          },
+          "expected_snapshot_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Expected Snapshot Id"
+          },
+          "application_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Application Id"
+          }
+        },
+        "required": [
+          "project_id",
+          "idempotency_key"
+        ],
+        "title": "Compile",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "ino_get_diagnostics",
+      "description": "Read paginated diagnostics tied to their original compilation snapshot; do not treat an empty message list as success.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "host_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Id"
+          },
+          "host_instance_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Instance Id"
+          },
+          "project_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Project Id",
+            "type": "string"
+          },
+          "operation_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Operation Id"
+          },
+          "current": {
+            "default": false,
+            "title": "Current",
+            "type": "boolean"
+          },
+          "offset": {
+            "default": 0,
+            "minimum": 0,
+            "title": "Offset",
+            "type": "integer"
+          },
+          "limit": {
+            "default": 100,
+            "maximum": 500,
+            "minimum": 1,
+            "title": "Limit",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "project_id"
+        ],
+        "title": "Diagnostics",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "ino_restore_checkpoint",
+      "description": "Conditionally restore a checkpoint only if the expected current version still matches, then verify recovery.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "host_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Id"
+          },
+          "host_instance_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Instance Id"
+          },
+          "project_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Project Id",
+            "type": "string"
+          },
+          "checkpoint_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Checkpoint Id",
+            "type": "string"
+          },
+          "expected_snapshot_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Expected Snapshot Id",
+            "type": "string"
+          },
+          "idempotency_key": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Idempotency Key",
+            "type": "string"
+          }
+        },
+        "required": [
+          "project_id",
+          "checkpoint_id",
+          "expected_snapshot_id",
+          "idempotency_key"
+        ],
+        "title": "Restore",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "ino_save_copy",
+      "description": "Persist the expected in-memory version to an allowed project-copy destination and report binding changes.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "host_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Id"
+          },
+          "host_instance_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Instance Id"
+          },
+          "project_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Project Id",
+            "type": "string"
+          },
+          "expected_snapshot_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Expected Snapshot Id",
+            "type": "string"
+          },
+          "destination": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "title": "Destination",
+            "type": "string"
+          },
+          "idempotency_key": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Idempotency Key",
+            "type": "string"
+          }
+        },
+        "required": [
+          "project_id",
+          "expected_snapshot_id",
+          "destination",
+          "idempotency_key"
+        ],
+        "title": "SaveCopy",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "ino_get_operation",
+      "description": "Poll a durable operation and inspect editing, compilation, saving and index statuses separately. Explicit reconcile=true reconciles an unknown save outcome with read-only evidence; it never replays the native write.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "host_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Id"
+          },
+          "host_instance_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Instance Id"
+          },
+          "project_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Project Id",
+            "type": "string"
+          },
+          "operation_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Operation Id",
+            "type": "string"
+          },
+          "reconcile": {
+            "default": false,
+            "title": "Reconcile",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "project_id",
+          "operation_id"
+        ],
+        "title": "GetOperation",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "ino_cancel_operation",
+      "description": "Request cancellation; this cannot interrupt an in-flight proprietary host API call.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "host_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Id"
+          },
+          "host_instance_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Instance Id"
+          },
+          "project_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Project Id",
+            "type": "string"
+          },
+          "operation_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Operation Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "project_id",
+          "operation_id"
+        ],
+        "title": "Operation",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "ino_set_monitor",
+      "description": "Enable/disable bounded change monitoring. Automatic compile is opt-in; monitoring never changes or saves source.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "host_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Id"
+          },
+          "host_instance_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Instance Id"
+          },
+          "project_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Project Id",
+            "type": "string"
+          },
+          "enabled": {
+            "title": "Enabled",
+            "type": "boolean"
+          },
+          "poll_seconds": {
+            "default": 1.0,
+            "maximum": 3600,
+            "minimum": 0.5,
+            "title": "Poll Seconds",
+            "type": "number"
+          },
+          "debounce_seconds": {
+            "default": 2.0,
+            "maximum": 3600,
+            "minimum": 0.5,
+            "title": "Debounce Seconds",
+            "type": "number"
+          },
+          "auto_compile": {
+            "default": false,
+            "title": "Auto Compile",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "project_id",
+          "enabled"
+        ],
+        "title": "Monitor",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "ino_get_changes",
+      "description": "Read changes after a cursor; resynchronize on expired cursors rather than silently skipping events.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "host_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Id"
+          },
+          "host_instance_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Instance Id"
+          },
+          "project_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Project Id",
+            "type": "string"
+          },
+          "after_cursor": {
+            "default": 0,
+            "minimum": 0,
+            "title": "After Cursor",
+            "type": "integer"
+          },
+          "limit": {
+            "default": 100,
+            "maximum": 500,
+            "minimum": 1,
+            "title": "Limit",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "project_id"
+        ],
+        "title": "Changes",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "ino_check_rules",
+      "description": "Run deterministic lexical rules. Results are distinct from native compile and cannot establish logic or runtime safety.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "host_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Id"
+          },
+          "host_instance_id": {
+            "anyOf": [
+              {
+                "maxLength": 256,
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Host Instance Id"
+          },
+          "project_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Project Id",
+            "type": "string"
+          },
+          "snapshot_id": {
+            "maxLength": 256,
+            "minLength": 1,
+            "title": "Snapshot Id",
+            "type": "string"
+          },
+          "rule_set_version": {
+            "const": "1",
+            "default": "1",
+            "title": "Rule Set Version",
+            "type": "string"
+          }
+        },
+        "required": [
+          "project_id",
+          "snapshot_id"
+        ],
+        "title": "CheckRules",
+        "type": "object"
+      },
+      "outputSchema": {
+        "type": "object",
+        "additionalProperties": true
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "openWorldHint": false
+      }
+    }
+  ]
+}

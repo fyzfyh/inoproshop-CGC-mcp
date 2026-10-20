@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "templates": [
+    {
+      "template_id": "am600-native-reference",
+      "name": "AM600 本机原生验收模板",
+      "model": "AM600 安装示例",
+      "project_file": "am600-native-reference/reference.project",
+      "sha256": "0983ad425880da4d039c74f56b6b8841ad8050d06c8f3f189cb3d0bb81d8f228",
+      "controller": {
+        "type": 4102,
+        "id": "10f4 0001",
+        "version": "3.5.9.40"
+      }
+    }
+  ]
+}

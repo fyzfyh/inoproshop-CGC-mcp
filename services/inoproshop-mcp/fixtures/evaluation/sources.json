@@ -1,0 +1,21 @@
+{
+  "fixture_version": "1.0",
+  "origin": "entirely_synthetic_no_customer_source",
+  "project_id": "evaluation-project-synthetic",
+  "snapshot_id": "evaluation-snapshot-v1",
+  "active_application_id": "application-eval",
+  "editor_sync": "fixture_not_native",
+  "nodes": [
+    {"id":"application-eval","name":"Application","kind":"application","path":"Synthetic/Device/Application","declaration":null,"implementation":null},
+    {"id":"task-eval","parent_id":"application-eval","name":"MainTask","kind":"task","path":"Synthetic/Device/Application/TaskConfiguration/MainTask","declaration":null,"implementation":null},
+    {"id":"program-main","parent_id":"application-eval","name":"PLC_PRG","kind":"program","language":"ST","path":"Synthetic/Device/Application/PLC_PRG","declaration":"PROGRAM PLC_PRG\nVAR\n    xStart : BOOL;\n    xStop : BOOL;\n    xPermit : BOOL;\n    xRun : BOOL;\n    nCounter : INT;\n    fbGate : FB_Gate;\nEND_VAR","implementation":"// 合成离线示例，不代表实际设备逻辑\nxRun := xStart AND NOT xStop;\nnCounter := nCounter + 1;\nfbGate(xRequest := xRun);"},
+    {"id":"fb-gate","parent_id":"application-eval","name":"FB_Gate","kind":"function_block","language":"ST","path":"Synthetic/Device/Application/FB_Gate","declaration":"FUNCTION_BLOCK FB_Gate\nVAR_INPUT\n    xRequest : BOOL;\nEND_VAR\nVAR_OUTPUT\n    xAllowed : BOOL;\nEND_VAR\nVAR\n    nCounter : INT;\nEND_VAR","implementation":"xAllowed := xRequest;\nnCounter := nCounter + 1;"},
+    {"id":"program-spare","parent_id":"application-eval","name":"PRG_Spare","kind":"program","language":"ST","path":"Synthetic/Device/Application/PRG_Spare","declaration":"PROGRAM PRG_Spare\nVAR\n    nCounter : INT;\nEND_VAR","implementation":"nCounter := 7;"},
+    {"id":"gvl-settings","parent_id":"application-eval","name":"GVL_Settings","kind":"gvl","language":"ST","path":"Synthetic/Device/Application/GVL_Settings","declaration":"VAR_GLOBAL\n    xEnabled : BOOL;\n    nThreshold : INT := 10;\nEND_VAR","implementation":null}
+  ],
+  "relations": [
+    {"kind":"task_call","source":"task-eval","target":"program-main"}
+  ],
+  "tasks": [{"id":"task-eval","name":"MainTask","interval":"t#20ms","priority":1,"calls":[{"object_id":"program-main","name":"PLC_PRG","order":0}]}],
+  "coverage": {"source":"synthetic fixture","graphics":"not_available","device_parameters":"not_available","encrypted_libraries":"not_available"}
+}
